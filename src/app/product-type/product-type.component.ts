@@ -11,12 +11,14 @@ import { FieldBase } from "../model/field-base";
 export class ProductTypeComponent implements OnInit {
   fields: Array<FieldBase>;
   formGroup: FormGroup;
-  formBuilder: FormBuilder;
   constructor(formBuilder: FormBuilder) {
-    this.formBuilder = formBuilder;
+    this.formGroup = formBuilder.group({});
   }
 
   ngOnInit() {
     this.fields = [new TextField("FirstName", {title: "first name"})];
+  }
+  getValue():string{
+    return JSON.stringify(this.formGroup.value);
   }
 }

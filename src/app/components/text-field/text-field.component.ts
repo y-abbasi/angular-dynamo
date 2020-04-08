@@ -8,10 +8,8 @@ import { TextField } from "../../model/text-field";
 })
 export class TextFieldComponent implements OnInit {
   @Input() field: TextField;
-  name: string;
   constructor() {}
 
   ngOnInit() {
-    this.name="yasser;";
   }
 }

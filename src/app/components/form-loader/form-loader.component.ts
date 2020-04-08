@@ -9,16 +9,13 @@ import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 })
 export class FormLoaderComponent implements OnInit {
   @Input() fields: Array<FieldBase>;
-  formBuilder: FormBuilder;
-  formGroup: FormGroup;
-  constructor(formBuilder: FormBuilder) {
-    this.formBuilder = formBuilder;
-  }
+  @Input() formGroup: FormGroup;
+  constructor() {}
 
   ngOnInit() {
-    var g = {};
-    this.fields.forEach(a => g[a.name] = new FormControl());
-    this.formGroup = new FormGroup(g);
-    this.fields.forEach(a => a.formGroup = this.formGroup);
+    this.fields.forEach(a => {
+      this.formGroup.addControl(a.name, new FormControl());
+      a.formGroup = this.formGroup;
+    });
   }
 }
