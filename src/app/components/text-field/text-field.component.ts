@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { TextField } from "../../model/field-base";
+import { TextField } from "../../model/text-field";
 
 @Component({
   selector: "app-text-field",
@@ -7,8 +7,7 @@ import { TextField } from "../../model/field-base";
   styleUrls: ["./text-field.component.css"]
 })
 export class TextFieldComponent implements OnInit {
-  @Input()
-  field: TextField;
+  @Input() field: TextField;
   constructor() {}
 
   ngOnInit() {}

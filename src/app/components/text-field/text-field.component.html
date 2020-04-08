@@ -1,4 +1,4 @@
-<p>
-<label>{{field.setting.title}}</label>
-<input formControlName="field.name" />
-</p>
+<div [formGroup]="field.FormGroup">
+	<label>{{field.setting.title}}</label>
+	<input formControlName="field.name" />
+</div>

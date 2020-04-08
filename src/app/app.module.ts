@@ -19,7 +19,8 @@ var routes = [
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, DynamicComponentModule],
   declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent, FormLoaderComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[TextFieldComponent]
 })
 export class AppModule {}
 
