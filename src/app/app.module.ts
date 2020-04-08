@@ -9,6 +9,7 @@ import { ProductTypeComponent } from "./product-type/product-type.component";
 import { TextFieldComponent } from './components/text-field/text-field.component';
 import { FieldLoaderComponent } from './components/field-loader/field-loader.component';
 import { DynamicComponentModule } from "ng-dynamic-component";
+import { FormLoaderComponent } from './components/form-loader/form-loader.component';
 var routes = [
   {
     path: "",
@@ -17,7 +18,7 @@ var routes = [
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, DynamicComponentModule],
-  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent],
+  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent, FormLoaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
