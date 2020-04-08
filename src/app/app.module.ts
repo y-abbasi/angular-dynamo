@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductTypeComponent } from "./product-type/product-type.component";
+import { TextFieldComponent } from './components/text-field/text-field.component';
 var routes = [
   {
     path: "",
@@ -14,7 +15,7 @@ var routes = [
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule],
-  declarations: [AppComponent, TopBarComponent, ProductTypeComponent],
+  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
