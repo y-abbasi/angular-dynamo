@@ -7,6 +7,8 @@ import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductTypeComponent } from "./product-type/product-type.component";
 import { TextFieldComponent } from './components/text-field/text-field.component';
+import { FieldLoaderComponent } from './components/field-loader/field-loader.component';
+import { DynamicComponentModule } from "ng-dynamic-component";
 var routes = [
   {
     path: "",
@@ -14,8 +16,8 @@ var routes = [
   }
 ];
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule],
-  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent],
+  imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, DynamicComponentModule],
+  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

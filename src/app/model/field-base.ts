@@ -6,10 +6,10 @@ import { TextFieldComponent } from "../components/text-field/text-field.componen
 export abstract class FieldBase {
   label: string;
   formGroup: FormGroup;
-  abstract createComponent(): Type<any>;
+  abstract component(): Type<any>;
 }
 export class TextField extends FieldBase {
-  createComponent(): Type<any> {
+  component(): Type<any> {
     return TextFieldComponent;
   }
 }
