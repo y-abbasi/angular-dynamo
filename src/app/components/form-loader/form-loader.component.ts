@@ -19,5 +19,6 @@ export class FormLoaderComponent implements OnInit {
     var g = {};
     this.fields.forEach(a => g[a.name] = new FormControl());
     this.formGroup = new FormGroup(g);
+    this.fields.forEach(a => a.formGroup = this.formGroup);
   }
 }

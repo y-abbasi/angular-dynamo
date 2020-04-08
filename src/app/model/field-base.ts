@@ -5,10 +5,9 @@ export abstract class FieldBase {
   name: string;
   setting: any;
   formGroup: FormGroup;
-  constructor(name: string, setting: any, formGroup: FormGroup) {
+  constructor(name: string, setting: any) {
     this.name = name;
     this.setting = setting;
-    this.formGroup = formGroup;
   }
   abstract component(): Type<any>;
 }

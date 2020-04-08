@@ -4,8 +4,8 @@ import { TextFieldComponent } from "../components/text-field/text-field.componen
 import { Type } from "@angular/core";
 
 export class TextField extends FieldBase {
-  constructor(name: string, setting: any, formGroup: FormGroup) {
-    super(name, setting, formGroup);
+  constructor(name: string, setting: any) {
+    super(name, setting);
   }
   component(): Type<any> {
     return TextFieldComponent;

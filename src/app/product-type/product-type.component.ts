@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { FieldBase, TextField } from "../model/text-field";
+import { TextField } from "../model/text-field";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { FieldBase } from "../model/field-base";
 
 @Component({
   selector: "app-product-type",
@@ -16,9 +17,6 @@ export class ProductTypeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.formBuilder.group({
-      "FirstName":'yasser'
-    })
-    this.fields = [new TextField("FirstName", {title: "first name"}, this.formGroup)];
+    this.fields = [new TextField("FirstName", {title: "first name"})];
   }
 }
