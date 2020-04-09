@@ -12,8 +12,3 @@ export class TextFieldSetting {
   @Type({type: "Combo", items: ["text", "password", "phone", "email", "url"]})
   type: String;
 }
-
-// Metadata introspection
-// let obj = new TextFieldSetting();
-// let paramTypes = Reflect.getMetadata("design:paramtypes", obj, "add");
-// debugger;

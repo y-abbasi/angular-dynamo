@@ -11,6 +11,7 @@ import { FieldLoaderComponent } from './components/field-loader/field-loader.com
 import { DynamicComponentModule } from "ng-dynamic-component";
 import { FormLoaderComponent } from './components/form-loader/form-loader.component';
 import { PropertyDesignerComponent } from './components/property-designer/property-designer.component';
+import { SchemaBuilderService } from './services/schema-builder.service';
 var routes = [
   {
     path: "",
@@ -21,7 +22,8 @@ var routes = [
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, DynamicComponentModule],
   declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent, FormLoaderComponent, PropertyDesignerComponent],
   bootstrap: [AppComponent],
-  entryComponents:[TextFieldComponent]
+  entryComponents:[TextFieldComponent],
+  providers: [SchemaBuilderService]
 })
 export class AppModule {}
 
