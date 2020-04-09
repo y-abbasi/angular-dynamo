@@ -1,22 +1,24 @@
 import { TextDesigner } from "./designers/text-designer";
 import { ComboDesigner } from "./designers/combo-designer";
 
-function Type(type) {
+export function Designer(type) {
   return Reflect.metadata("design:type", type);
 }
 
 // Decorator application
 export class TextFieldSetting {
-  constructor() {
+  constructor(arg: any) {
     this.title = "title";
     this.type = "text";
+    for(var p in arg)
+    this[p] = arg[p];
   }
 
-  @Type(new TextDesigner({ title: "Title" }))
+  @Designer(new TextDesigner({ title: "Title" }))
   title: String;
 
   // @Type({type: "Combo", items: ["text", "password", "phone", "email", "url"]})
-  @Type(
+  @Designer(
     new ComboDesigner({
       title: "Type",
       items: ["text", "password", "phone", "email", "url"]

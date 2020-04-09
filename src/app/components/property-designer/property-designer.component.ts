@@ -25,5 +25,9 @@ export class PropertyDesignerComponent implements OnInit {
       item.formGroup = this.formGroup;
       this.formGroup.addControl(item.name, new FormControl());
     })
+    this.formGroup.setValue(this.object);
+    this.formGroup.valueChanges.subscribe(data => {
+      Object.assign( this.object, data); 
+    })
   }
 }

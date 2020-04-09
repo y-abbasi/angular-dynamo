@@ -1,13 +1,13 @@
 import { FormGroup } from "@angular/forms";
 import { Type } from "@angular/core";
+import { Designer } from "./text-field-setting";
 
 export abstract class FieldBase {
+  @Designer({title:"name"})
   name: string;
-  setting: any;
   formGroup: FormGroup;
-  constructor(name: string, setting: any) {
+  constructor(name: string) {
     this.name = name;
-    this.setting = setting;
   }
   abstract component(): Type<any>;
 }
