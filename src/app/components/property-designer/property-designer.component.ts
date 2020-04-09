@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { FieldBase } from "../../model/field-base";
 import { SchemaBuilderService } from "../../services/schema-builder.service";
@@ -18,7 +18,11 @@ export class PropertyDesignerComponent implements OnInit {
     this.schemaBuilder = schemaBuilder;
   }
 
-  ngOnInit() {
+  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges) {
+    this.prepareForm();
+  }
+  private prepareForm() {
     this.formGroup = new FormGroup({});
     this.schema = this.schemaBuilder.create(this.object);
     var value = {};

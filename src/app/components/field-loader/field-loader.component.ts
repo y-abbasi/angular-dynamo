@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, DoCheck } from "@angular/core";
 import { FieldBase } from "../../model/field-base";
 
 @Component({
@@ -6,9 +6,12 @@ import { FieldBase } from "../../model/field-base";
   templateUrl: "./field-loader.component.html",
   styleUrls: ["./field-loader.component.css"]
 })
-export class FieldLoaderComponent implements OnInit {
+export class FieldLoaderComponent implements OnInit, DoCheck {
   @Input() field: FieldBase;
   constructor() {}
 
   ngOnInit() {}
+  ngDoCheck(){
+    //alert(0)
+  }
 }

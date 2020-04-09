@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { FieldBase } from "../../model/field-base";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 
@@ -12,7 +12,14 @@ export class FormLoaderComponent implements OnInit {
   @Input() formGroup: FormGroup;
   constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+  ngOnChanges(changes: SimpleChanges) {
+    this.prepareForm();
+  }
+  ngDoCheck(a) {
+    this.prepareForm();
+  }
+  prepareForm() {
     this.fields.forEach(a => {
       this.formGroup.addControl(a.name, new FormControl());
       a.formGroup = this.formGroup;
