@@ -8,7 +8,8 @@ import { Designer } from "./text-field-setting";
 
 export class TextField extends FieldBase {
   constructor(name: string, setting: any) {
-    super(name, setting);
+    super(name);
+    Object.assign(this, setting);
   }
   component(): Type<any> {
     return TextFieldComponent;

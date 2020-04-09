@@ -14,20 +14,22 @@ export class PropertyDesignerComponent implements OnInit {
   schema: Array<FieldBase>;
   schemaBuilder: SchemaBuilderService;
 
-  constructor(schemaBuilder:SchemaBuilderService) {
+  constructor(schemaBuilder: SchemaBuilderService) {
     this.schemaBuilder = schemaBuilder;
   }
 
   ngOnInit() {
     this.formGroup = new FormGroup({});
     this.schema = this.schemaBuilder.create(this.object);
-    this.schema.forEach(item =>{
+    var value = {};
+    this.schema.forEach(item => {
       item.formGroup = this.formGroup;
       this.formGroup.addControl(item.name, new FormControl());
-    })
-    this.formGroup.setValue(this.object);
+      value[item.name] = this.object[item.name];
+    });
+    this.formGroup.setValue(value);
     this.formGroup.valueChanges.subscribe(data => {
-      Object.assign( this.object, data); 
-    })
+      Object.assign(this.object, data);
+    });
   }
 }
