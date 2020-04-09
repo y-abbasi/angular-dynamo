@@ -9,6 +9,8 @@ import { Designer } from "./text-field-setting";
 export class TextField extends FieldBase {
   constructor(name: string, setting: any) {
     super(name);
+    this.title = "title 1";
+    this.type = "text";
     Object.assign(this, setting);
   }
   component(): Type<any> {

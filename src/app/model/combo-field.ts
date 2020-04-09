@@ -7,8 +7,9 @@ export class ComboField extends FieldBase {
   @Designer({title:"name"})
   name: string;
   items: Array<any>;
-  constructor(name: string) {
+  constructor(name: string, setting:any) {
     super(name);
+    Object.assign(this, setting);
   }
   component(): Type<any> {
     return ComboFieldComponent;

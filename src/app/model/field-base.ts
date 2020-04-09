@@ -4,7 +4,7 @@ import { Designer } from "./text-field-setting";
 import { TextDesigner } from "./designers/text-designer";
 
 export abstract class FieldBase {
-  @Designer(new TextDesigner({ title: "Title" }))
+  @Designer(new TextDesigner({ title: "Name" }))
   name: string;
   formGroup: FormGroup;
   constructor(name: string) {
