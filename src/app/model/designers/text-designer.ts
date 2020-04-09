@@ -2,7 +2,7 @@ import { DesignerBase } from "./designer-base";
 import { FieldBase } from "../field-base";
 import { TextField } from "../text-field";
 
-export class TextDesginer extends DesignerBase {
+export class TextDesigner extends DesignerBase {
   setting: any;
   constructor(setting: any) {
     super();

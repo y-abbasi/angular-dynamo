@@ -9,10 +9,8 @@ import { TextFieldSetting } from "../../model/text-field-setting";
 })
 export class TextFieldComponent implements OnInit {
   @Input() field: TextField;
-  d:TextFieldSetting;
   constructor() {}
 
   ngOnInit() {
-    this.d = new TextFieldSetting();
   }
 }

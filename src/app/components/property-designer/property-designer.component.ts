@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { FieldBase } from "../../model/field-base";
+import { SchemaBuilderService } from "../../services/schema-builder.service";
 
 @Component({
   selector: "app-property-designer",
@@ -11,12 +12,18 @@ export class PropertyDesignerComponent implements OnInit {
   @Input() object: any;
   formGroup: FormGroup;
   schema: Array<FieldBase>;
-  constructor() {}
+  schemaBuilder: SchemaBuilderService;
+
+  constructor(schemaBuilder:SchemaBuilderService) {
+    this.schemaBuilder = schemaBuilder;
+  }
 
   ngOnInit() {
     this.formGroup = new FormGroup({});
-    for (var prop in this.object) {
-      this.add(this.object, prop);
-    }
+    this.schema = this.schemaBuilder.create(this.object);
+    this.schema.forEach(item =>{
+      item.formGroup = this.formGroup;
+      this.formGroup.addControl(item.name, new FormControl());
+    })
   }
 }

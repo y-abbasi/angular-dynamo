@@ -12,6 +12,7 @@ import { DynamicComponentModule } from "ng-dynamic-component";
 import { FormLoaderComponent } from './components/form-loader/form-loader.component';
 import { PropertyDesignerComponent } from './components/property-designer/property-designer.component';
 import { SchemaBuilderService } from './services/schema-builder.service';
+import { ComboFieldComponent } from './components/combo-field/combo-field.component';
 var routes = [
   {
     path: "",
@@ -20,9 +21,9 @@ var routes = [
 ];
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes), ReactiveFormsModule, DynamicComponentModule],
-  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent, FormLoaderComponent, PropertyDesignerComponent],
+  declarations: [AppComponent, TopBarComponent, ProductTypeComponent, TextFieldComponent, FieldLoaderComponent, FormLoaderComponent, PropertyDesignerComponent, ComboFieldComponent],
   bootstrap: [AppComponent],
-  entryComponents:[TextFieldComponent],
+  entryComponents:[TextFieldComponent, ComboFieldComponent],
   providers: [SchemaBuilderService]
 })
 export class AppModule {}
