@@ -16,7 +16,10 @@ export class ProductTypeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fields = [new TextField("FirstName", {title: "first name"})];
+    this.fields = [
+      new TextField("FirstName", {title: "first name"}),
+      new TextField("LastName", {title: "last name"}),
+      ];
   }
   getValue():string{
     return JSON.stringify(this.formGroup.value);
