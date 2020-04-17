@@ -3,7 +3,7 @@
 		<input kendoTextBox  *ngIf="isTextInput() && !isMaskedInput()" formControlName="{{field.name}}"/>
 		<kendo-maskedtextbox *ngIf="isMaskedInput()" [mask]="field.mask" formControlName="{{field.name}}">
 		</kendo-maskedtextbox>
-		<kendo-numerictextbox *ngIf="isNumberInput()" [min]="0" [max]="100" [autoCorrect]="true" formControlName="{{field.name}}">
+		<kendo-numerictextbox *ngIf="isNumberInput()" [min]="field.min" [max]="field.max" [autoCorrect]="true" formControlName="{{field.name}}">
 		</kendo-numerictextbox>
 	</kendo-textbox-container>
 </div>

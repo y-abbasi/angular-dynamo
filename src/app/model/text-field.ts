@@ -10,8 +10,10 @@ export class TextField extends FieldBase {
   constructor(name: string, setting: any) {
     super(name);
     this.title = "title 1";
-    this.type = "text";
     this.mask = null;
+    this.type = "text";
+    this.min = null;
+    this.max = null;
     Object.assign(this, setting);
   }
   component(): Type<any> {
@@ -23,6 +25,12 @@ export class TextField extends FieldBase {
 
   @Designer(new TextDesigner({ title: "Mask", condition: "type == 'text'" }))
   mask: String;
+
+  @Designer(new TextDesigner({ title: "Min Value", condition: "type == 'number'" }))
+  min: Number;
+
+  @Designer(new TextDesigner({ title: "Max Value", condition: "type == 'number'" }))
+  max: Number;
 
   @Designer(
     new ComboDesigner({

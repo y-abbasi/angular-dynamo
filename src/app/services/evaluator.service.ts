@@ -10,7 +10,7 @@ export class EvaluatorService {
     var match = expression.match(regex);
     for (var i = 0; i<match.length; i++)
     {
-        fields.push(match[i].replace(/[\(\)\']/g, ''));
+        fields.push(match[i].replace(/[\(\)\'\"]/g, ''));
     }
     //for(var p in model) fields.push(p);
     var exp = `((model) => { var { ${fields.join(',')} } = model; return ${expression}; })(model)`;
