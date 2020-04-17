@@ -1,6 +1,8 @@
 <div [formGroup]="field.formGroup">
-	<label> {{field.title}}  </label>
-	<select formControlName="{{field.name}}">
-    <option *ngFor="let item of field.getItems()" [value]="item[0]">{{item[1]}}</option>
-  </select>
+	<div class="example-wrapper">
+	<kendo-textbox-container floatingLabel="{{field.title}}">
+		<kendo-dropdownlist [data]="field.items" formControlName="{{field.name}}">
+		</kendo-dropdownlist>
+	</kendo-textbox-container>
+	</div>
 </div>

@@ -1,4 +1,9 @@
 <div [formGroup]="field.formGroup">
-	<label> {{field.title}}  </label>
-	<input [type]="field.type" formControlName="{{field.name}}"/>
+	<kendo-textbox-container floatingLabel="{{field.title}}">
+		<input kendoTextBox  *ngIf="isTextInput() && !isMaskedInput()" formControlName="{{field.name}}"/>
+		<kendo-maskedtextbox *ngIf="isMaskedInput()" [mask]="field.mask" formControlName="{{field.name}}">
+		</kendo-maskedtextbox>
+		<kendo-numerictextbox *ngIf="isNumberInput()" [min]="0" [max]="100" [autoCorrect]="true" formControlName="{{field.name}}">
+		</kendo-numerictextbox>
+	</kendo-textbox-container>
 </div>

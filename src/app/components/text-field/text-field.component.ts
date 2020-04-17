@@ -13,4 +13,16 @@ export class TextFieldComponent implements OnInit {
 
   ngOnInit() {
   }
+  isMaskedInput(){
+    return this.isTextInput() && this.mask();
+  }
+  isTextInput(){
+    return this.field.type === "text";
+  }
+  isNumberInput(){
+    return this.field.type === "number";
+  }
+  mask(){
+    return this.field.mask;
+  }
 }

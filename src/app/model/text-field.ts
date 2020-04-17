@@ -11,6 +11,7 @@ export class TextField extends FieldBase {
     super(name);
     this.title = "title 1";
     this.type = "text";
+    this.mask = null;
     Object.assign(this, setting);
   }
   component(): Type<any> {
@@ -20,10 +21,13 @@ export class TextField extends FieldBase {
   @Designer(new TextDesigner({ title: "Title" }))
   title: String;
 
+  @Designer(new TextDesigner({ title: "Mask" }))
+  mask: String;
+
   @Designer(
     new ComboDesigner({
       title: "Type",
-      items: ["text", "password", "phone", "email", "url"]
+      items: ["text", "number", "password", "phone", "email", "url"]
     })
   )
   type: String;
