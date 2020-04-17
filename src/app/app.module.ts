@@ -16,6 +16,7 @@ import { ComboFieldComponent } from "./components/combo-field/combo-field.compon
 import { InputsModule } from "@progress/kendo-angular-inputs";
 import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EvaluatorService } from './services/evaluator.service';
 var routes = [
   {
     path: "",
@@ -44,7 +45,7 @@ var routes = [
   ],
   bootstrap: [AppComponent],
   entryComponents: [TextFieldComponent, ComboFieldComponent],
-  providers: [SchemaBuilderService]
+  providers: [SchemaBuilderService, EvaluatorService]
 })
 export class AppModule {}
 

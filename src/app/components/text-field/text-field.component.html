@@ -1,4 +1,4 @@
-<div [formGroup]="field.formGroup">
+<div [formGroup]="field.formGroup" *ngIf="visible()">
 	<kendo-textbox-container floatingLabel="{{field.title}}">
 		<input kendoTextBox  *ngIf="isTextInput() && !isMaskedInput()" formControlName="{{field.name}}"/>
 		<kendo-maskedtextbox *ngIf="isMaskedInput()" [mask]="field.mask" formControlName="{{field.name}}">

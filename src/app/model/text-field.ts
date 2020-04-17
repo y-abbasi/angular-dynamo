@@ -21,7 +21,7 @@ export class TextField extends FieldBase {
   @Designer(new TextDesigner({ title: "Title" }))
   title: String;
 
-  @Designer(new TextDesigner({ title: "Mask" }))
+  @Designer(new TextDesigner({ title: "Mask", condition: "type == 'text'" }))
   mask: String;
 
   @Designer(

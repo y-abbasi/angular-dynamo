@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { TextField } from "../../model/text-field";
 import { TextFieldSetting } from "../../model/text-field-setting";
+import { EvaluatorService } from "../../services/evaluator.service";
 
 @Component({
   selector: "app-text-field",
@@ -9,7 +10,7 @@ import { TextFieldSetting } from "../../model/text-field-setting";
 })
 export class TextFieldComponent implements OnInit {
   @Input() field: TextField;
-  constructor() {}
+  constructor(private evaluator: EvaluatorService) {}
 
   ngOnInit() {
   }
@@ -24,5 +25,8 @@ export class TextFieldComponent implements OnInit {
   }
   mask(){
     return this.field.mask;
+  }
+  visible(){
+    return this.field.condition ? this.evaluator.eval(this.field.formGroup.value, this.field.condition) : true;
   }
 }
