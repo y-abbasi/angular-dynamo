@@ -10,7 +10,6 @@ export abstract class FieldBase {
   @Designer(new TextDesigner({ title: "Condition", group: "General" }))
   condition: string;
 
-  @Designer(new TextDesigner({ title: "Grouped In", group: "General" }))
   group: string;
 
   formGroup: FormGroup;
