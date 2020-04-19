@@ -6,9 +6,14 @@ import { TextDesigner } from "./designers/text-designer";
 export abstract class FieldBase {
   @Designer(new TextDesigner({ title: "Name" }))
   name: string;
+
+  @Designer(new TextDesigner({ title: "Condition" }))
+  condition: string;
+
   formGroup: FormGroup;
   constructor(name: string) {
     this.name = name;
+    this.condition = null;
   }
   abstract component(): Type<any>;
 }
