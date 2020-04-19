@@ -4,11 +4,14 @@ import { Designer } from "./text-field-setting";
 import { TextDesigner } from "./designers/text-designer";
 
 export abstract class FieldBase {
-  @Designer(new TextDesigner({ title: "Name" }))
+  @Designer(new TextDesigner({ title: "Name", group: "General" }))
   name: string;
 
-  @Designer(new TextDesigner({ title: "Condition" }))
+  @Designer(new TextDesigner({ title: "Condition", group: "General" }))
   condition: string;
+
+  @Designer(new TextDesigner({ title: "Grouped In", group: "General" }))
+  group: string;
 
   formGroup: FormGroup;
   constructor(name: string) {

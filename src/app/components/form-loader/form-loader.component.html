@@ -1,3 +1,17 @@
 <form [formGroup]="formGroup">
-	<app-field-loader *ngFor="let f of fields" [field]="f"></app-field-loader>
+	<ng-container *ngFor="let g of groups">
+		<fieldset *ngIf="g.title">
+			<legend>{{g.title}}</legend>
+			<app-field-loader *ngFor="let f of g.fields" [field]="f"></app-field-loader>
+		</fieldset>
+		<ng-container  *ngIf="!g.title">
+			<app-field-loader *ngFor="let f of g.fields" [field]="f"></app-field-loader>
+		 </ng-container>
+	</ng-container>
+	<!-- <div *ngFor="let g of groups">
+		<fieldset *ngIf="g.title">
+			<legend>{{g.title}}</legend>
+			<app-field-loader *ngFor="let f of fields" [field]="f"></app-field-loader>
+		</fieldset> 
+	</div> -->
 </form>

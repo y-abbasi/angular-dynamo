@@ -20,22 +20,22 @@ export class TextField extends FieldBase {
     return TextFieldComponent;
   }
   
-  @Designer(new TextDesigner({ title: "Title" }))
+  @Designer(new TextDesigner({ title: "Title", group: "General" }))
   title: String;
 
-  @Designer(new TextDesigner({ title: "Mask", condition: "type == 'text'" }))
+  @Designer(new TextDesigner({ title: "Mask", condition: "type == 'text'", group: "Special" }))
   mask: String;
 
-  @Designer(new TextDesigner({ title: "Min Value", condition: "type == 'number'" }))
+  @Designer(new TextDesigner({ title: "Min Value", condition: "type == 'number'", group: "Special" }))
   min: Number;
 
-  @Designer(new TextDesigner({ title: "Max Value", condition: "type == 'number'" }))
+  @Designer(new TextDesigner({ title: "Max Value", condition: "type == 'number'", group: "Special" }))
   max: Number;
 
   @Designer(
     new ComboDesigner({
       title: "Type",
-      items: ["text", "number", "password", "phone", "email", "url"]
+      items: ["text", "number", "password", "phone", "email", "url"], group: "General"
     })
   )
   type: String;

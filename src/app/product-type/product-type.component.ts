@@ -20,6 +20,7 @@ export class ProductTypeComponent implements OnInit {
       new TextField("FirstName", { title: "first name" }),
       new TextField("LastName", { title: "last name" })
     ];
+    //this.fields.forEach(a => a.group = "group")
     this.textField = this.fields[0];
   }
   getValue(): string {
