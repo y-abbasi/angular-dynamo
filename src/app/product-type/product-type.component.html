@@ -1,11 +1,4 @@
-<ul>
-	<li *ngFor="let field of fields" (click)="selectField(field)">{{field.name}}</li>
-</ul>
-<button (click)="addField()"> +</button>
-<hr />
-<app-property-designer [object]="textField"></app-property-designer>
-<hr />
-<app-form-loader [fields]="fields" [formGroup]="formGroup"></app-form-loader>
-<pre>
+<app-form-designer [fields]="fields"></app-form-designer>
+<!-- <pre>
   {{getValue()}}
-</pre>
+</pre> -->

@@ -1,8 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
-
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AppComponent } from "./app.component";
 import { TopBarComponent } from "./top-bar/top-bar.component";
 import { ProductTypeComponent } from "./product-type/product-type.component";
@@ -17,6 +17,7 @@ import { InputsModule } from "@progress/kendo-angular-inputs";
 import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { EvaluatorService } from './services/evaluator.service';
+import { FormDesignerComponent } from './components/form-designer/form-designer.component';
 var routes = [
   {
     path: "",
@@ -29,8 +30,10 @@ var routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    DragDropModule,
     DynamicComponentModule,
     InputsModule,
+    FormsModule ,
     DropDownsModule
   ],
   declarations: [
@@ -41,7 +44,8 @@ var routes = [
     FieldLoaderComponent,
     FormLoaderComponent,
     PropertyDesignerComponent,
-    ComboFieldComponent
+    ComboFieldComponent,
+    FormDesignerComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [TextFieldComponent, ComboFieldComponent],

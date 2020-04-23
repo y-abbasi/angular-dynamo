@@ -3,8 +3,8 @@ import { ComboFieldComponent } from "../components/combo-field/combo-field.compo
 import { Type } from "@angular/core";
 import { Designer } from "./text-field-setting";
 
+@Designer({title: "Combobox"})
 export class ComboField extends FieldBase {
-  @Designer({title:"name"})
   name: string;
   items: Array<any>;
   constructor(name: string, setting:any) {

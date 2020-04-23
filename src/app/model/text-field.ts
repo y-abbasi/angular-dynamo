@@ -6,6 +6,7 @@ import { ComboDesigner } from "./designers/combo-designer";
 import { TextDesigner } from "./designers/text-designer";
 import { Designer } from "./text-field-setting";
 
+@Designer({title: "Textbox"})
 export class TextField extends FieldBase {
   constructor(name: string, setting: any) {
     super(name);

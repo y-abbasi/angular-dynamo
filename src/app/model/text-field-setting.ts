@@ -4,6 +4,9 @@ import { ComboDesigner } from "./designers/combo-designer";
 export function Designer(type) {
   return Reflect.metadata("design:type", type);
 }
+export function GetMetaData(type){
+  return Reflect.getMetadata("design:type", type);
+}
 
 // Decorator application
 // export class TextFieldSetting {
