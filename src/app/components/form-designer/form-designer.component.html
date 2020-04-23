@@ -1,32 +1,37 @@
-<p>
-	form-designer works!
-</p>
 <div cdkDropListGroup>
-<ul cdkDropList cdkDropListSortingDisabled [cdkDropListData]="toolbars()" class="example-list" (cdkDropListDropped)="drop($event)">
-	<li class="example-box" *ngFor="let item of toolbars()" cdkDrag>{{item.title}}</li>
-</ul>
-<table style="width:100%;">
-	<tr>
-		<td style="width:25%;">
-			<app-property-designer *ngIf="selectedControl" [object]="selectedControl"></app-property-designer>
-		</td>
-		<td style="vertical-align: text-top;">
-			<div 
-        cdkDropList
-        [cdkDropListData]="fields"
-        class="example-list"
-        (cdkDropListDropped)="reorder($event)" 
-        >
-				<div *ngFor="let c of fields"
-            (click)="selectControl(c)"
-            style="position: relative"
-            class="example-box"
-            cdkDrag>
-          <div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div>
-					<app-field-loader [field]="c"></app-field-loader>
-				</div>
+	<kendo-splitter orientation="vertical" style="height: 60px;">
+		<kendo-splitter-pane size="100px">
+			<div class="pane-content">
+				<ul cdkDropList cdkDropListSortingDisabled [cdkDropListData]="toolbars()" class="example-list"
+					(cdkDropListDropped)="drop($event)">
+					<li class="example-box" *ngFor="let item of toolbars()" cdkDrag>{{item.title}}</li>
+				</ul>
 			</div>
-		</td>
-	</tr>
-</table>
+		</kendo-splitter-pane>
+		<kendo-splitter-pane>
+			<kendo-splitter>
+
+				<kendo-splitter-pane [collapsible]="true" size="30%">
+					<div class="pane-content">
+						<app-property-designer *ngIf="selectedControl" [object]="selectedControl">
+						</app-property-designer>
+					</div>
+				</kendo-splitter-pane>
+
+				<kendo-splitter-pane>
+					<div class="pane-content">
+						<div cdkDropList [cdkDropListData]="fields" class="example-list"
+							(cdkDropListDropped)="reorder($event)">
+							<div *ngFor="let c of fields" (click)="selectControl(c)" style="position: relative"
+								class="example-box" cdkDrag>
+								<div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div>
+								<app-field-loader [field]="c"></app-field-loader>
+							</div>
+						</div>
+					</div>
+				</kendo-splitter-pane>
+			</kendo-splitter>
+		</kendo-splitter-pane>
+	</kendo-splitter>
+
 </div>

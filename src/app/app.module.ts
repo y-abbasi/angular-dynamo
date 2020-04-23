@@ -18,6 +18,7 @@ import { DropDownsModule } from "@progress/kendo-angular-dropdowns";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { EvaluatorService } from './services/evaluator.service';
 import { FormDesignerComponent } from './components/form-designer/form-designer.component';
+import { PanelBarModule, SplitterModule } from "@progress/kendo-angular-layout";
 var routes = [
   {
     path: "",
@@ -34,7 +35,8 @@ var routes = [
     DynamicComponentModule,
     InputsModule,
     FormsModule ,
-    DropDownsModule
+    DropDownsModule,
+    SplitterModule
   ],
   declarations: [
     AppComponent,
