@@ -1,22 +1,28 @@
-.example-container {
-  width: 100px;
-  margin: 0 25px 25px 0;
-  display: inline-block;
-  vertical-align: top;
+.toolbar .toolbar-item{
+   float: left;
+   margin: 10px 4px; padding: 5px 10px;
+     display: flex;
+  flex-direction: row;
+  border-radius: 4px;
+  border: 1px solid;
 }
-
-.example-list {
-  border: solid 1px #ccc;
-  min-height: 60px;
+.pane-content{
   background: white;
+}
+.example-list {
+  width: 100%;
+  max-width: 100%;
+  border: solid 1px #ccc;
+  min-height: 40px;
+  display: flex;
+  flex-direction: row;
   border-radius: 4px;
   overflow: hidden;
-  display: block;
 }
 
 .example-box {
-  padding: 10px 5px;
-  border-bottom: solid 1px #ccc;
+  padding: 0;
+  border-right: solid 1px #ccc;
   color: rgba(0, 0, 0, 0.87);
   display: flex;
   flex-direction: row;
@@ -24,8 +30,9 @@
   justify-content: space-between;
   box-sizing: border-box;
   cursor: move;
-  background: white;
   font-size: 14px;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 .cdk-drag-preview {
