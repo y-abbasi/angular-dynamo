@@ -20,9 +20,12 @@ export class TextField extends FieldBase {
   component(): Type<any> {
     return TextFieldComponent;
   }
-  
+  private _title: string  = "title 1";
   @Designer(new TextDesigner({ title: "Title", group: "General" }))
-  title: String;
+  set title(title: string){
+    this._title =title;
+  }
+  get title(){ return this._title;}
 
   @Designer(new TextDesigner({ title: "Mask", condition: "type == 'text'", group: "Special" }))
   mask: String;
