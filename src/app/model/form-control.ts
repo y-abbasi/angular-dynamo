@@ -2,6 +2,7 @@ import { BaseControl } from "./base-control";
 import { ContainerControl } from "./container-control";
 import { Designer } from "./text-field-setting";
 import { TextDesigner } from "./designers/text-designer";
+import { Type } from "@angular/core";
 
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
@@ -22,4 +23,8 @@ export class FormControl extends BaseControl {
   get columnsCount(): number {
     return this._columnsCount;
   }
+   component(): Type<any>{
+     return FormControlComponent;
+   }
+
 }

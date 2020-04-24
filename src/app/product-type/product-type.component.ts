@@ -6,7 +6,7 @@ import {
   ChangeDetectionStrategy
 } from "@angular/core";
 import { TextField } from "../model/text-field";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { FieldBase } from "../model/field-base";
 import {
   moveItemInArray,
@@ -29,8 +29,17 @@ export class ProductTypeComponent implements OnInit {
   ngOnInit() {
     this.formGroup = new FormGroup({});
     this.fields = [
-      new TextField("FirstName", { title: "first name" }),
-      new TextField("LastName", { title: "last name" })
+      new FormControl("form1", {
+        title: "Base Info",
+        containers: [
+          new ContainerControl("container1", {
+            controls: [
+              new TextField("FirstName", { title: "first name" }),
+              new TextField("LastName", { title: "last name" })
+            ]
+          })
+        ]
+      })
     ];
     //this.fields.forEach(a => a.group = "group")
     this.textField = this.fields[0];
