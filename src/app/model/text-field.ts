@@ -9,7 +9,7 @@ import { Designer } from "./text-field-setting";
 @Designer({title: "Textbox"})
 export class TextField extends FieldBase {
   constructor(name: string, setting: any) {
-    super(name);
+    super(name, setting);
     this.title = "title 1";
     this.mask = null;
     this.type = "text";
