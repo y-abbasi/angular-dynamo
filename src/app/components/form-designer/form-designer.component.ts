@@ -18,6 +18,7 @@ import {
   moveItemInArray
 } from "@angular/cdk/drag-drop";
 import { TextField } from "../../model/text-field";
+import { CheckboxField } from "../../model/checkbox-field";
 import { ComboField } from "../../model/combo-field";
 import { EventAggregatorService } from "../../services/event-aggregator.service";
 import { ComponentSelected } from "../../model/messages/component-selected";
@@ -38,7 +39,7 @@ export class FormDesignerComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef, private eventAggregator: EventAggregatorService) {
     this.eventAggregator.subscribe(ComponentSelected, (e) => this.selectControl(e.component));
   }
-  tools: Array<Type<any>> = [TextField, ComboField];
+  tools: Array<Type<any>> = [TextField, ComboField, CheckboxField];
   selectedControl: BaseControl;
   selectControl(controlToSelect) {
     this.selectedControl = null;

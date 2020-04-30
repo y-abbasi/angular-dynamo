@@ -54,10 +54,11 @@ var routes = [
     FormDesignerComponent,
     FormControlComponent,
     ContainerControlComponent,
+    CheckboxFieldComponent,
     CheckboxFieldComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent],
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent],
   providers: [SchemaBuilderService, EvaluatorService, EventAggregatorService]
 })
 export class AppModule {}
