@@ -3,21 +3,29 @@ import { ContainerControlComponent } from "../components/container-control/conta
 import { Type } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
-export class ContainerControl extends BaseControl{
-  controls: Array<BaseControl>;
-  constructor(name: string, settigns: any){
+export class ContainerControl extends BaseControl {
+  constructor(name: string, settigns: any) {
     super(name, settigns);
   }
-  component():Type<any>{
+  component(): Type<any> {
     return ContainerControlComponent;
   }
-  
-  _formGroup : FormGroup;
-  set formGroup(val: FormGroup){
+
+  _formGroup: FormGroup;
+  set formGroup(val: FormGroup) {
     this._formGroup = val;
-    this.controls.forEach(item => item.formGroup = this._formGroup);
+    if (this._controls)
+      this.controls.forEach(item => (item.formGroup = this._formGroup));
   }
-  get formGroup(){
+  get formGroup() {
     return this._formGroup;
+  }
+  _controls: Array<BaseControl>;
+  set controls(val: Array<BaseControl>) {
+    this._controls = val;
+    if (val) val.forEach(c => (c.formGroup = this._formGroup));
+  }
+  get controls() {
+    return this._controls;
   }
 }

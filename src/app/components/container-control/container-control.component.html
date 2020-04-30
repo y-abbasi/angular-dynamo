@@ -1,4 +1,4 @@
-<div>
+<div style="border:1px solid; padding: 10px">
 	<div cdkDropList [cdkDropListData]="field.controls" cdkDropListOrientation="vertical"
 		(cdkDropListDropped)="reorder($event)">
 		<div *ngFor="let c of field.controls" style="position: relative" class="example-box" cdkDrag>

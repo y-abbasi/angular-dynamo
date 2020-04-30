@@ -2,11 +2,13 @@ import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { FieldBase } from "../../model/field-base";
 import { SchemaBuilderService } from "../../services/schema-builder.service";
+import { EventAggregatorService } from "../../services/event-aggregator.service";
 
 @Component({
   selector: "app-property-designer",
   templateUrl: "./property-designer.component.html",
-  styleUrls: ["./property-designer.component.css"]
+  styleUrls: ["./property-designer.component.css"],
+  providers: [EventAggregatorService]
 })
 export class PropertyDesignerComponent implements OnInit {
   @Input() object: any;

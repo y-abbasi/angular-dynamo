@@ -25,7 +25,8 @@ import { ComponentSelected } from "../../model/messages/component-selected";
 @Component({
   selector: "app-form-designer",
   templateUrl: "./form-designer.component.html",
-  styleUrls: ["./form-designer.component.css"]
+  styleUrls: ["./form-designer.component.css"],
+  providers: [EventAggregatorService]
 })
 export class FormDesignerComponent implements OnInit {
   fields: Array<BaseControl>;
