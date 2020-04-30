@@ -22,6 +22,7 @@ import { PanelBarModule, SplitterModule } from "@progress/kendo-angular-layout";
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { ContainerControlComponent } from "./components/container-control/container-control.component";
 import { EventAggregatorService } from './services/event-aggregator.service';
+import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-field.component';
 var routes = [
   {
     path: "",
@@ -52,7 +53,8 @@ var routes = [
     ComboFieldComponent,
     FormDesignerComponent,
     FormControlComponent,
-    ContainerControlComponent
+    ContainerControlComponent,
+    CheckboxFieldComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent],
