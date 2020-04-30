@@ -23,7 +23,7 @@
 
 				<kendo-splitter-pane>
 					<div class="pane-content">
-							<div *ngFor="let c of fields" (click)="selectControl(c)" style="position: relative"
+							<div *ngFor="let c of fields" style="position: relative"
 								class="example-box" cdkDrag>
 								<!-- <div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div> -->
 								<app-field-loader [field]="c"></app-field-loader>

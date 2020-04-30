@@ -19,6 +19,8 @@ import {
 } from "@angular/cdk/drag-drop";
 import { TextField } from "../../model/text-field";
 import { ComboField } from "../../model/combo-field";
+import { EventAggregatorService } from "../../services/event-aggregator.service";
+import { ComponentSelected } from "../../model/messages/component-selected";
 
 @Component({
   selector: "app-form-designer",
@@ -32,7 +34,9 @@ export class FormDesignerComponent implements OnInit {
     this.selectControl(value[0]);
   }
   formGroup: FormGroup;
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef, private eventAggregator: EventAggregatorService) {
+    this.eventAggregator.subscribe(ComponentSelected, (e) => this.selectControl(e.component));
+  }
   tools: Array<Type<any>> = [TextField, ComboField];
   selectedControl: BaseControl;
   selectControl(controlToSelect) {

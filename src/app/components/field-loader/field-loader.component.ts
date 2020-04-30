@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, DoCheck } from "@angular/core";
 import { FieldBase } from "../../model/field-base";
+import { EventAggregatorService } from "../../services/event-aggregator.service";
+import { ComponentSelected } from "../../model/messages/component-selected";
 
 @Component({
   selector: "app-field-loader",
@@ -8,10 +10,13 @@ import { FieldBase } from "../../model/field-base";
 })
 export class FieldLoaderComponent implements OnInit, DoCheck {
   @Input() field: FieldBase;
-  constructor() {}
+  constructor(private eventAggregator: EventAggregatorService) {}
 
   ngOnInit() {}
-  ngDoCheck(){
-    //alert(0)
+  ngDoCheck() {}
+  selectControl(c, e) {
+    this.eventAggregator.publish(new ComponentSelected(c));
+    e.preventDefault();
+    e.stopPropagation();
   }
 }

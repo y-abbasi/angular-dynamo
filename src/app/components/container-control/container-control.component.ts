@@ -17,7 +17,7 @@ export class ContainerControlComponent implements OnInit {
     if (event.previousContainer === event.container) {
       moveItemInArray(this.field.controls, event.previousIndex, event.currentIndex);
     } else {
-      this.field.cons.splice(
+      this.field.controls.splice(
         event.currentIndex,
         0,
         new event.previousContainer.data[event.previousIndex].component("name")

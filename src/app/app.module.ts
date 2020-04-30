@@ -21,6 +21,7 @@ import { FormDesignerComponent } from './components/form-designer/form-designer.
 import { PanelBarModule, SplitterModule } from "@progress/kendo-angular-layout";
 import { FormControlComponent } from './components/form-control/form-control.component';
 import { ContainerControlComponent } from "./components/container-control/container-control.component";
+import { EventAggregatorService } from './services/event-aggregator.service';
 var routes = [
   {
     path: "",
@@ -54,8 +55,8 @@ var routes = [
     ContainerControlComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlCom],
-  providers: [SchemaBuilderService, EvaluatorService]
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent],
+  providers: [SchemaBuilderService, EvaluatorService, EventAggregatorService]
 })
 export class AppModule {}
 
