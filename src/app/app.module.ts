@@ -19,8 +19,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { EvaluatorService } from './services/evaluator.service';
 import { FormDesignerComponent } from './components/form-designer/form-designer.component';
 import { PanelBarModule, SplitterModule } from "@progress/kendo-angular-layout";
-import { FormComponent } from './components/form/form.component';
 import { FormControlComponent } from './components/form-control/form-control.component';
+import { ContainerControlComponent } from "./components/container-control/container-control.component";
 var routes = [
   {
     path: "",
@@ -50,11 +50,11 @@ var routes = [
     PropertyDesignerComponent,
     ComboFieldComponent,
     FormDesignerComponent,
-    FormComponent,
-    FormControlComponent
+    FormControlComponent,
+    ContainerControlComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent],
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent],
   providers: [SchemaBuilderService, EvaluatorService]
 })
 export class AppModule {}
