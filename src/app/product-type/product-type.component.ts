@@ -39,6 +39,12 @@ export class ProductTypeComponent implements OnInit {
               new TextField("FirstName", { title: "first name" }),
               new TextField("LastName", { title: "last name" })
             ]
+          }),
+          new ContainerControl("container2", {
+            controls: [
+              new TextField("FirstName2222", { title: "first name" }),
+              new TextField("LastName2", { title: "last name" })
+            ]
           })
         ]
       })
