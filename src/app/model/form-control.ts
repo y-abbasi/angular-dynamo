@@ -3,6 +3,7 @@ import { ContainerControl } from "./container-control";
 import { Designer } from "./text-field-setting";
 import { TextDesigner } from "./designers/text-designer";
 import { Type } from "@angular/core";
+import { FormControlComponent } from "../components/form-control/form-control.component";
 
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {

@@ -54,7 +54,7 @@ var routes = [
     ContainerControlComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent],
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlCom],
   providers: [SchemaBuilderService, EvaluatorService]
 })
 export class AppModule {}
