@@ -15,7 +15,7 @@ export class ContainerControl extends BaseControl {
   set formGroup(val: FormGroup) {
     this._formGroup = val;
     if (this._controls)
-      this.controls.forEach(item => (item.formGroup = this._formGroup));
+      this._controls.forEach(item => (item.formGroup = this._formGroup));
   }
   get formGroup() {
     return this._formGroup;

@@ -29,7 +29,7 @@ export class FormControl extends BaseControl {
     new TextDesigner({ title: "Columns", type: "number", min: 1, max: 3 })
   )
   set columnsCount(value: number) {
-    for (let i = this._columnsCount; this._columnsCount < value; i++) {
+    for (let i = this._columnsCount; i < value; i++) {
       this.containers.push(new ContainerControl("Container" + i, {formGroup: this._formGroup, controls: []}));
     }
     this.containers.splice(value, 3);
