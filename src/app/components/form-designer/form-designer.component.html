@@ -2,9 +2,12 @@
 	<kendo-splitter orientation="vertical" style="height: 600px;">
 		<kendo-splitter-pane size="50px" [resizable]="false" [scrollable]="false">
 			<div class="pane-content">
-				<div cdkDropList cdkDropListSortingDisabled cdkDropListOrientation="horizontal" [cdkDropListData]="toolbars()" class="toolbar"
-					(cdkDropListDropped)="drop($event)">
-					<div class="toolbar-item" *ngFor="let item of toolbars()" cdkDrag>{{item.title}}</div>
+				<div cdkDropList cdkDropListSortingDisabled 
+          cdkDropListOrientation="horizontal"
+					[cdkDropListData]="toolbars()"
+          class="toolbar"
+          (cdkDropListDropped)="drop($event)">
+					  <div class="toolbar-item" *ngFor="let item of toolbars()" cdkDrag>{{item.title}}</div>
 				</div>
 			</div>
 		</kendo-splitter-pane>
@@ -20,7 +23,7 @@
 
 				<kendo-splitter-pane>
 					<div class="pane-content">
-						<div cdkDropList [cdkDropListData]="fields" cdkDropListOrientation="vertical" 
+						<div cdkDropList [cdkDropListData]="fields" cdkDropListOrientation="vertical"
 							(cdkDropListDropped)="reorder($event)">
 							<div *ngFor="let c of fields" (click)="selectControl(c)" style="position: relative"
 								class="example-box" cdkDrag>

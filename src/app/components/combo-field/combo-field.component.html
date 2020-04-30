@@ -1,4 +1,4 @@
-<div [formGroup]="field.formGroup">
+<div [formGroup]="field.formGroup" *ngIf="field.formGroup && visible()">
 	<div class="example-wrapper">
 	<kendo-textbox-container floatingLabel="{{field.title}}">
 		<kendo-dropdownlist [data]="field.items" formControlName="{{field.name}}">
