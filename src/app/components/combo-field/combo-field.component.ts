@@ -13,4 +13,7 @@ export class ComboFieldComponent implements OnInit {
   ngOnInit() {
   }
 
+  visible(){
+    return this.field.condition ? this.evaluator.eval(this.field.formGroup.value, this.field.condition) : true;
+  }
 }
