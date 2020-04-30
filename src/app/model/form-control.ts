@@ -9,7 +9,7 @@ import { FormGroup } from "@angular/forms";
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
     super(name, settings);
-    this.columnsCount = 1;
+    this.columnsCount = this.columnsCount || 1;
   }
   private setContainerFormGroup(){
     this._containers.forEach(item => item.formGroup = this._formGroup);
