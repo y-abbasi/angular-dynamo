@@ -1,5 +1,9 @@
 <div>
-	<ng-container *ngFor="let f of field.controls">
-			<app-field-loader [field]="f"></app-field-loader>
-	</ng-container>
+	<div cdkDropList [cdkDropListData]="field.controls" cdkDropListOrientation="vertical"
+		(cdkDropListDropped)="reorder($event)">
+		<div *ngFor="let c of field.controls" (click)="selectControl(c)" style="position: relative" class="example-box" cdkDrag>
+		<app-field-loader [field]="c"></app-field-loader>
+			<!-- <div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div> -->
+		</div>
+	</div>
 </div>
