@@ -8,6 +8,7 @@ import { FormControlComponent } from "../components/form-control/form-control.co
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
     super(name, settings);
+    this.columnsCount = 1
   }
   containers: Array<ContainerControl> = [];
   private _columnsCount;
