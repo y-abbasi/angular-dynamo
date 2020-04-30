@@ -6,13 +6,15 @@ import {
   ChangeDetectionStrategy
 } from "@angular/core";
 import { TextField } from "../model/text-field";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 import { FieldBase } from "../model/field-base";
 import {
   moveItemInArray,
   CdkDragDrop,
   transferArrayItem
 } from "@angular/cdk/drag-drop";
+import { ContainerControl } from "../model/container-control";
+import { FormControl } from "../model/form-control";
 
 @Component({
   selector: "app-product-type",
