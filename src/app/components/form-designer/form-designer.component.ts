@@ -58,14 +58,9 @@ export class FormDesignerComponent implements OnInit {
     this.prepareForm();
   }
 
-
   reorder(event: CdkDragDrop<Array<any>>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(
-        this.fields,
-        event.previousIndex,
-        event.currentIndex
-      );
+      moveItemInArray(this.fields, event.previousIndex, event.currentIndex);
     } else {
       this.fields.splice(
         event.currentIndex,
@@ -80,8 +75,8 @@ export class FormDesignerComponent implements OnInit {
     this.fields.forEach(a => {
       if (a instanceof FieldBase) {
         this.formGroup.addControl(a.name, new FormControl());
-        a.formGroup = this.formGroup;
       }
+      a.formGroup = this.formGroup;
     });
     this.ref.markForCheck();
   }
