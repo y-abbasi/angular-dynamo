@@ -8,16 +8,23 @@ import { FormControlComponent } from "../components/form-control/form-control.co
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
     super(name, settings);
-    this.columnsCount = 1
+    this.columnsCount = 1;
   }
-  containers: Array<ContainerControl> = [];
+  _containers: Array<ContainerControl>;
+  set containers(containers: Array<ContainerControl>) {
+    this._containers = containers;
+    this._columnsCount = containers.length;
+  }
+  get containers() {
+    return this._containers;
+  }
   private _columnsCount;
   @Designer(
     new TextDesigner({ title: "Columns", type: "number", min: 1, max: 3 })
   )
   set columnsCount(value: number) {
-    for(let i = this._columnsCount; this._columnsCount < value; i++){
-      this.containers.push(new ContainerControl("Container" + i, {}))
+    for (let i = this._columnsCount; this._columnsCount < value; i++) {
+      this.containers.push(new ContainerControl("Container" + i, {}));
     }
     this.containers.splice(value, 3);
     this._columnsCount = value;
@@ -25,8 +32,7 @@ export class FormControl extends BaseControl {
   get columnsCount(): number {
     return this._columnsCount;
   }
-   component(): Type<any>{
-     return FormControlComponent;
-   }
-
+  component(): Type<any> {
+    return FormControlComponent;
+  }
 }
