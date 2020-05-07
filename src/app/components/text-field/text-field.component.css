@@ -2,5 +2,5 @@
   width: 100%;
 }
 .design-mode :host > div{
-  border: 1px dashed;
+  border: 0px dashed;
 }
