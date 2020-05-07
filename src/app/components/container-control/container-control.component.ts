@@ -15,7 +15,6 @@ export class ContainerControlComponent implements OnInit {
   ngOnInit() {}
 
   reorder(event: CdkDragDrop<Array<any>>) {
-    debugger;
     if (event.previousContainer === event.container) {
       moveItemInArray(
         this.field.controls,
@@ -28,7 +27,7 @@ export class ContainerControlComponent implements OnInit {
       this.field.controls.splice(
         event.currentIndex,
         0,
-        new event.previousContainer.data[event.previousIndex].component("name")
+        new event.previousContainer.data[event.previousIndex].component("name", {title: "title"})
       );
     }
   }

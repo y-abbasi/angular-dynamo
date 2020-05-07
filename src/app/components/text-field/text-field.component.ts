@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { TextField } from "../../model/text-field";
-import { TextFieldSetting, Designer } from "../../model/text-field-setting";
+import { Designer } from "../../model/text-field-setting";
 import { EvaluatorService } from "../../services/evaluator.service";
 
 @Component({

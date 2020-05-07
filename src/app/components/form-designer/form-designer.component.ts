@@ -7,7 +7,7 @@ import {
   Type
 } from "@angular/core";
 import { BaseControl } from "../../model/base-control";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { FieldBase } from "../../model/field-base";
 import { TextFieldComponent } from "../text-field/text-field.component";
 import { ComboFieldComponent } from "../combo-field/combo-field.component";
@@ -22,6 +22,7 @@ import { CheckboxField } from "../../model/checkbox-field";
 import { ComboField } from "../../model/combo-field";
 import { EventAggregatorService } from "../../services/event-aggregator.service";
 import { ComponentSelected } from "../../model/messages/component-selected";
+import { FormControl } from "../../model/form-control";
 
 @Component({
   selector: "app-form-designer",
@@ -54,6 +55,9 @@ export class FormDesignerComponent implements OnInit {
       meta.component = item;
       return meta;
     });
+  }
+  addForm(){
+    this.fields.push(new FormControl("Form1", {title: "Form Title"}));
   }
   ngOnInit() {}
   ngOnChanges(changes: SimpleChanges) {

@@ -6,6 +6,7 @@ import { Type } from "@angular/core";
 import { FormControlComponent } from "../components/form-control/form-control.component";
 import { FormGroup } from "@angular/forms";
 
+@Designer({title: "Form"})
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
     super(name, settings);
@@ -22,7 +23,7 @@ export class FormControl extends BaseControl {
     this.setContainerFormGroup();
   }
   get containers() {
-    return this._containers;
+    return this._containers || (this._containers = []);
   }
   private _columnsCount;
   @Designer(
@@ -36,7 +37,7 @@ export class FormControl extends BaseControl {
     this._columnsCount = value;
   }
   get columnsCount(): number {
-    return this._columnsCount;
+    return this._columnsCount || (this._columnsCount = 0);
   }
   _formGroup : FormGroup;
   set formGroup(val: FormGroup){
