@@ -39,15 +39,6 @@ export class FormControl extends BaseControl {
   )
   set columnsCount(value: number) {
     this.containers.forEach(item => item.maxColumn = value);
-    // for (let i = this._columnsCount; i < value; i++) {
-    //   this.containers.push(
-    //     new ContainerControl("Container" + i, {
-    //       formGroup: this._formGroup,
-    //       controls: []
-    //     })
-    //   );
-    // }
-    // this.containers.splice(value, 3);
     this._columnsCount = value;
   }
   get columnsCount(): number {
