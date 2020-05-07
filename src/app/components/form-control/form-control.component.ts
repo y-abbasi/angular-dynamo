@@ -19,7 +19,6 @@ export class FormControlComponent implements OnInit {
 
   }
   controlsAddedToTemp(cntr){
-    debugger;
     this.temp.formGroup = this.field.formGroup;
     this.temp.maxColumn = this.field.columnsCount;
     this.field.containers.push(this.temp);
