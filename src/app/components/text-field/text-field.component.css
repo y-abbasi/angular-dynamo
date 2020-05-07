@@ -1,4 +1,4 @@
-:host {
+:host .k-textbox-container, .k-floating-label-container{
   width: 100%;
 }
 .design-mode :host > div{
