@@ -10,7 +10,7 @@ export class ContainerControl extends BaseControl {
   component(): Type<any> {
     return ContainerControlComponent;
   }
-
+  public maxColumn: number;
   _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
     this._formGroup = val;

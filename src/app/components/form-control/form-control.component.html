@@ -1,6 +1,4 @@
-<h3> {{field.title}}</h>
-<div class="row">
-	<div *ngFor="let c of field.containers" class="col-4">
+<h3> {{field.title}}</h3>
+<div *ngFor="let c of field.containers">
 		<app-field-loader [field]="c"></app-field-loader>
-	</div>
 </div>

@@ -1,12 +1,11 @@
-<div>
-	<div cdkDropList [cdkDropListData]="field.controls" cdkDropListOrientation="vertical"
-		(cdkDropListDropped)="reorder($event)">
-		<div *ngIf="!field.controls || !field.controls.length" style="position: relative" class="example-box" cdkDrag>
-      &nbsp;
-		</div>
-		<div *ngFor="let c of field.controls" style="position: relative" class="example-box" cdkDrag>
+<div cdkDropList [cdkDropListData]="field.controls" cdkDropListOrientation="horizontal"
+	[cdkDropListEnterPredicate]="predicateMaxControls()" (cdkDropListDropped)="reorder($event)" class="row">
+	<div *ngIf="!field.controls || !field.controls.length" style="position: relative" class="example-box" cdkDrag>
+		&nbsp;
+	</div>
+	<div *ngFor="let c of field.controls" style="position: relative" class="col-{{12 / (field.maxColu)}}"
+		cdkDrag>
 		<app-field-loader [field]="c"></app-field-loader>
-			<!-- <div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div> -->
-		</div>
+		<!-- <div style="width:100%;height:100%;opacity:0;position: absolute;z-index:100;"></div> -->
 	</div>
 </div>
