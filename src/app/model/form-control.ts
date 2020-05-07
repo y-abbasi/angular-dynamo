@@ -6,16 +6,24 @@ import { Type } from "@angular/core";
 import { FormControlComponent } from "../components/form-control/form-control.component";
 import { FormGroup } from "@angular/forms";
 
-@Designer({title: "Form"})
+@Designer({ title: "Form" })
 export class FormControl extends BaseControl {
   constructor(name: string, settings: any) {
     super(name, settings);
     this.columnsCount = this.columnsCount || 1;
   }
-  private setContainerFormGroup(){
-    this._containers.forEach(item => item.formGroup = this._formGroup);
-
+  private setContainerFormGroup() {
+    this._containers.forEach(item => (item.formGroup = this._formGroup));
   }
+  private _title: string = "title 1";
+  @Designer(new TextDesigner({ title: "Title", group: "General" }))
+  set title(title: string) {
+    this._title = title;
+  }
+  get title() {
+    return this._title;
+  }
+
   _containers: Array<ContainerControl>;
   set containers(containers: Array<ContainerControl>) {
     this._containers = containers;
@@ -31,7 +39,12 @@ export class FormControl extends BaseControl {
   )
   set columnsCount(value: number) {
     for (let i = this._columnsCount; i < value; i++) {
-      this.containers.push(new ContainerControl("Container" + i, {formGroup: this._formGroup, controls: []}));
+      this.containers.push(
+        new ContainerControl("Container" + i, {
+          formGroup: this._formGroup,
+          controls: []
+        })
+      );
     }
     this.containers.splice(value, 3);
     this._columnsCount = value;
@@ -39,12 +52,12 @@ export class FormControl extends BaseControl {
   get columnsCount(): number {
     return this._columnsCount || (this._columnsCount = 0);
   }
-  _formGroup : FormGroup;
-  set formGroup(val: FormGroup){
+  _formGroup: FormGroup;
+  set formGroup(val: FormGroup) {
     this._formGroup = val;
     this.setContainerFormGroup();
   }
-  get formGroup(){
+  get formGroup() {
     return this._formGroup;
   }
   component(): Type<any> {
