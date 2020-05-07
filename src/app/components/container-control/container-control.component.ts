@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { ContainerControl } from "../../model/container-control";
 import {
   CdkDragDrop,
@@ -14,6 +14,7 @@ import { BaseControl } from "../../model/base-control";
 })
 export class ContainerControlComponent implements OnInit {
   @Input() field: ContainerControl;
+  @Output() controlAdded: EventEmitter<any> = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
@@ -34,19 +35,17 @@ export class ContainerControlComponent implements OnInit {
         event.previousIndex,
         event.currentIndex
       );
+      this.controlAdded.emit(this.field.controls[event.currentIndex]);
     } else {
-      this.field.controls.splice(
-        event.currentIndex,
-        0,
-        new event.previousContainer.data[event.previousIndex].component(
-          "name",
-          { title: "title" }
-        )
-      );
+      var componentInstance = new event.previousContainer.data[
+        event.previousIndex
+      ].component("name", { title: "title" });
+      this.field.controls.splice(event.currentIndex, 0, componentInstance);
+      this.controlAdded.emit(componentInstance);
     }
   }
   predicateMaxControls() {
     var that = this;
-    return  () => that.field.controls.length < that.field.maxColumn;
+    return () => that.field.controls.length < that.field.maxColumn;
   }
 }
