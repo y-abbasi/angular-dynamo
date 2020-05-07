@@ -35,7 +35,7 @@ export class FormControl extends BaseControl {
   }
   private _columnsCount;
   @Designer(
-    new TextDesigner({ title: "Columns", type: "number", min: 1, max: 3 })
+    new TextDesigner({ title: "Columns", type: "number", min: 1, max: 4 })
   )
   set columnsCount(value: number) {
     this.containers.forEach(item => item.maxColumn = value);
