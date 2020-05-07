@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { ContainerControl } from "../../model/container-control";
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from "@angular/cdk/drag-drop";
+import { BaseControl } from "../../model/base-control";
 
 @Component({
   selector: "app-container-control",
@@ -14,8 +15,15 @@ export class ContainerControlComponent implements OnInit {
   ngOnInit() {}
 
   reorder(event: CdkDragDrop<Array<any>>) {
+    debugger;
     if (event.previousContainer === event.container) {
-      moveItemInArray(this.field.controls, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        this.field.controls,
+        event.previousIndex,
+        event.currentIndex
+      );
+    } else if (event.previousContainer.data[event.previousIndex] instanceof BaseControl) {
+      transferArrayItem(event.previousContainer.data, this.field.controls, event.previousIndex, event.currentIndex);
     } else {
       this.field.controls.splice(
         event.currentIndex,
@@ -23,4 +31,5 @@ export class ContainerControlComponent implements OnInit {
         new event.previousContainer.data[event.previousIndex].component("name")
       );
     }
-  }}
+  }
+}
