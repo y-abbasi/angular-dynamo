@@ -22,7 +22,7 @@ export class ComboField extends FieldBase {
     let items: Array<any> = this.items;
     return items.map(it => (typeof it === "string" ? [it, it] : it));
   }
-  @Designer(new ComplexPopup({title: "Data Source", group:"Data Source", formControlBuilder: new ComboboxDataSourceSchema()}))
+  @Designer(new ComplexPopup({title: "Data Source", group:"Data Source", formControlBuilder: new ComboboxDataSourceSchema(), displayField: "name"}))
   dataSource: any;
 }
 

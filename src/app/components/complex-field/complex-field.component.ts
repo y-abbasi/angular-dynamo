@@ -28,7 +28,7 @@ export class ComplexFieldComponent implements OnInit {
     });
     dialog.result.subscribe(result => {
       console.log(result);
-      if (result instanceof DialogCloseResult result.primary !== true) {
+      if (result instanceof DialogCloseResult || result.primary !== true) {
         formGroup.controls[this.field.name].patchValue(originalValue);
       }
     });
