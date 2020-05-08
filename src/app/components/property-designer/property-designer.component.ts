@@ -30,10 +30,9 @@ export class PropertyDesignerComponent implements OnInit {
     var value = {};
     this.schema.forEach(item => {
       item.formGroup = this.formGroup;
-      this.formGroup.addControl(item.name, new FormControl());
       value[item.name] = this.object[item.name];
     });
-    this.formGroup.setValue(value);
+    this.formGroup.patchValue(value);
     this.formGroup.valueChanges.subscribe(data => {
       Object.assign(this.object, data);
     });

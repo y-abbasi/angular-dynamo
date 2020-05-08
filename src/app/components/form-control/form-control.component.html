@@ -1,5 +1,7 @@
-<h3> {{field.title}}</h3>
+<fieldset>
+  <legend> {{field.title}}</legend>
 <div *ngFor="let c of field.containers">
 		<app-field-loader [field]="c"></app-field-loader>
 </div>
 <app-container-control [field]="temp" (controlAdded)="controlsAddedToTemp($event)" ></app-container-control>
+</fieldset>

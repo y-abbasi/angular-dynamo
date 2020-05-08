@@ -1,0 +1,7 @@
+<span>
+	Object<span (click)="openForm(innerForm)">...</span>
+</span>
+<ng-template #innerForm>
+	<app-form-loader [fields]="[field.formControl]"></app-form-loader>
+</ng-template>
+<div kendoDialogContainer></div>
