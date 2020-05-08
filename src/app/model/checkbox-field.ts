@@ -9,12 +9,13 @@ export class CheckboxField extends FieldBase {
   static defaults: any = { title: "checkbox" };
   constructor(name: string, settings: any) {
     super(name, settings);
-    Object.assign(this, CheckboxField.defaults );
-    Object.assign(this, settings)
+    Object.assign(this, CheckboxField.defaults);
+    Object.assign(this, settings);
   }
   component(): Type<any> {
     return CheckboxFieldComponent;
   }
   @Designer(new TextDesigner({ title: "Title", group: "General" }))
   title: string;
+
 }

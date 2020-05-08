@@ -17,4 +17,5 @@ export abstract class BaseControl {
     Object.assign(this, settings);
   }
   abstract component(): Type<any>;
+  abstract setupFormGroup(formGroup: FormGroup);
 }
