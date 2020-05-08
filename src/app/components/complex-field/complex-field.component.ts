@@ -1,6 +1,11 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
-import { DialogService } from "@progress/kendo-angular-dialog";
+import {
+  DialogService,
+  DialogRef,
+  DialogCloseResult
+} from "@progress/kendo-angular-dialog";
 import { ComplexField } from "../../model/complex-field";
+import { FormGroup } from "@angular/forms";
 
 @Component({
   selector: "app-complex-field",
@@ -14,10 +19,18 @@ export class ComplexFieldComponent implements OnInit {
   ngOnInit() {}
 
   openForm(innerForm: TemplateRef<any>) {
-    this.dialogService.open({
+    const formGroup = this.field.formGroup;
+    const originalValue = formGroup.controls[this.field.name].value;
+    const dialog: DialogRef = this.dialogService.open({
       title: "Please confirm",
       content: innerForm,
-      actions: [{ text: "No" }, { text: "Yes", primary: true }]
+      actions: [{ text: "Cancel" }, { text: "Ok", primary: true }]
+    });
+    dialog.result.subscribe(result => {
+      console.log(result);
+      if (result instanceof DialogCloseResult result.primary !== true) {
+        formGroup.controls[this.field.name].patchValue(originalValue);
+      }
     });
   }
 }

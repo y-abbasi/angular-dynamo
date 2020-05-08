@@ -38,21 +38,26 @@ export class FormControl extends BaseControl {
     new TextDesigner({ title: "Columns", type: "number", min: 1, max: 4 })
   )
   set columnsCount(value: number) {
-    this.containers.forEach(item => item.maxColumn = value);
+    this.containers.forEach(item => (item.maxColumn = value));
     this._columnsCount = value;
   }
   get columnsCount(): number {
     return this._columnsCount || (this._columnsCount = 0);
   }
+  private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    super.setupFormGroup = (fg) => this.setupFormGroup(fg);
-    super.formGroup = val;
+    this.setupFormGroup(val);
+    this._formGroup = val;
     this.setContainerFormGroup();
   }
+  get formGroup() {
+    return this._formGroup;
+  }
+
   component(): Type<any> {
     return FormControlComponent;
   }
-  setupFormGroup(formGroup: FormGroup){
+  setupFormGroup(formGroup: FormGroup) {
     this.containers.forEach(c => c.setupFormGroup(formGroup));
   }
 }
