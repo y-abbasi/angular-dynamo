@@ -23,6 +23,7 @@ import { FormControlComponent } from './components/form-control/form-control.com
 import { ContainerControlComponent } from "./components/container-control/container-control.component";
 import { EventAggregatorService } from './services/event-aggregator.service';
 import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-field.component';
+import { ComplexFieldComponent } from './components/complex-field/complex-field.component';
 var routes = [
   {
     path: "",
@@ -56,7 +57,8 @@ var routes = [
     FormControlComponent,
     ContainerControlComponent,
     CheckboxFieldComponent,
-    CheckboxFieldComponent
+    CheckboxFieldComponent,
+    ComplexFieldComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent],

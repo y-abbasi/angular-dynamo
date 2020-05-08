@@ -45,7 +45,7 @@ export class FormControl extends BaseControl {
     return this._columnsCount || (this._columnsCount = 0);
   }
   set formGroup(val: FormGroup) {
-    super.setupFormGroup = (f) => this.setupFormGroup(fg);
+    super.setupFormGroup = (fg) => this.setupFormGroup(fg);
     super.formGroup = val;
     this.setContainerFormGroup();
   }
