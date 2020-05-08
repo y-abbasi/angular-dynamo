@@ -10,6 +10,8 @@ export class ComplexField extends FieldBase {
   formControl: FormControl;
   constructor(name: string, settings: any) {
     super(name, settings);
+    if (this.formControl === undefined)
+      this.formControl = settings.formControlBuilder.build();
     this.formControl.name = name;
   }
 
@@ -28,7 +30,7 @@ export class ComplexField extends FieldBase {
     formGroup.addControl(this.name, subForm);
     this.formControl.setupFormGroup(subForm);
   }
-  component(): Type<any>{
+  component(): Type<any> {
     return ComplexFieldComponent;
   }
 }

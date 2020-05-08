@@ -32,7 +32,7 @@ export class PropertyDesignerComponent implements OnInit {
       item.formGroup = this.formGroup;
       value[item.name] = this.object[item.name];
     });
-    this.formGroup.setValue(value);
+    this.formGroup.patchValue(value);
     this.formGroup.valueChanges.subscribe(data => {
       Object.assign(this.object, data);
     });

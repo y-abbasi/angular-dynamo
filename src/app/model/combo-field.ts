@@ -4,7 +4,7 @@ import { Type } from "@angular/core";
 import { Designer } from "./text-field-setting";
 import { ComplexPopup } from "./designers/complex-popup";
 import { FormControl } from "./form-control";
-import { TextField } from "./text-field";
+import { ComboboxDataSourceSchema } from "./schemas/combobox-data-source-schema";
 
 @Designer({title: "Combobox"})
 export class ComboField extends FieldBase {
@@ -22,14 +22,7 @@ export class ComboField extends FieldBase {
     let items: Array<any> = this.items;
     return items.map(it => (typeof it === "string" ? [it, it] : it));
   }
-  @Designer(new ComplexPopup({title: "Data Source", group:"Data Source", formControl: comboDataSourceSchema()}))
+  @Designer(new ComplexPopup({title: "Data Source", group:"Data Source", formControlBuilder: new ComboboxDataSourceSchema()}))
   dataSource: any;
 }
 
-function comboDataSourceSchema():FormControl{
-  return new FormControl("dataSource", {
-    containers:[
-       // new TextField("name", {})
-    ]
-  })
-}
