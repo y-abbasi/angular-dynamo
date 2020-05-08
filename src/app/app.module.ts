@@ -24,6 +24,7 @@ import { ContainerControlComponent } from "./components/container-control/contai
 import { EventAggregatorService } from './services/event-aggregator.service';
 import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-field.component';
 import { ComplexFieldComponent } from './components/complex-field/complex-field.component';
+import { DialogsModule } from "@progress/kendo-angular-dialog";
 var routes = [
   {
     path: "",
@@ -42,7 +43,8 @@ var routes = [
     FormsModule ,
     DropDownsModule,
     SplitterModule,
-    TabStripModule
+    TabStripModule,
+    DialogsModule 
   ],
   declarations: [
     AppComponent,
@@ -61,7 +63,7 @@ var routes = [
     ComplexFieldComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent],
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent, ComplexFieldComponent],
   providers: [SchemaBuilderService, EvaluatorService, EventAggregatorService]
 })
 export class AppModule {}

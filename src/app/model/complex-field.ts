@@ -12,9 +12,15 @@ export class ComplexField extends FieldBase {
     super(name, settings);
     this.formControl.name = name;
   }
+
+  private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    super.formGroup = val;
-    this.formControl.formGroup = val;
+    if (!this.setupFormGroup) debugger;
+    this.setupFormGroup(val);
+    this._formGroup = val;
+  }
+  get formGroup() {
+    return this._formGroup;
   }
 
   setupFormGroup(formGroup: FormGroup) {

@@ -4,17 +4,21 @@ import { Type } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 
 export abstract class BaseControl {
+  private _name: string;
   @Designer(new TextDesigner({ title: "Name", group: "General" }))
-  name: string;
+  set name(val: string) {
+    this._name = val;
+  }
+  get name(): string {
+    return this._name;
+  }
 
   @Designer(new TextDesigner({ title: "Condition", group: "General" }))
   condition: string;
 
-  
   private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    if(!this.setupFormGroup)
-    debugger;
+    if (!this.setupFormGroup) debugger;
     this.setupFormGroup(val);
     this._formGroup = val;
   }
