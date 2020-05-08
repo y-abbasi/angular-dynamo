@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FieldBase } from '../../model/field-base';
+import { ComboField } from '../../model/combo-field';
 
 @Component({
   selector: 'app-combo-field',
@@ -7,7 +8,7 @@ import { FieldBase } from '../../model/field-base';
   styleUrls: ['./combo-field.component.css']
 })
 export class ComboFieldComponent implements OnInit {
-  @Input() field: FieldBase;
+  @Input() field: ComboField;
   constructor() { }
 
   ngOnInit() {
@@ -15,5 +16,8 @@ export class ComboFieldComponent implements OnInit {
 
   visible(){
     return this.field.condition ? this.evaluator.eval(this.field.formGroup.value, this.field.condition) : true;
+  }
+  dataSource(){
+    return this.field.items || this.field.dataSource.items;
   }
 }
