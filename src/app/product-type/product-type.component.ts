@@ -57,7 +57,7 @@ export class ProductTypeComponent implements OnInit {
         ]
       })
     });
-    this.fields = [item, addresses];
+    this.fields = [item];
     //this.fields.forEach(a => a.group = "group")
     this.textField = this.fields[0];
   }

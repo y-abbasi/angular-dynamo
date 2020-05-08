@@ -13,6 +13,7 @@ export class FormControl extends BaseControl {
     this.columnsCount = this.columnsCount || 1;
   }
   private setContainerFormGroup() {
+    if(!this.formGroup) return;
     this._containers.forEach(item => (item.formGroup = this._formGroup));
   }
   private _title: string = "title 1";

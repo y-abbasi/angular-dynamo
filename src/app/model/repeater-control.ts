@@ -37,7 +37,7 @@ export class RepeaterControl extends BaseControl {
     return this._formGroup;
   }
   setupFormGroup(formGroup: FormGroup) {
-    this.formGroup.addControl(this.name, new FormArray([]));
+    thisformGroup.addControl(this.name, new FormArray([]));
   }
   component(): Type<any> {
     return RepeaterControlComponent;

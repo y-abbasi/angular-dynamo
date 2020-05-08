@@ -17,8 +17,8 @@ export class ComplexField extends FieldBase {
 
   private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    this.setupFormGroup(val);
     this._formGroup = val;
+    this.setupFormGroup(val);
     this.formControl.formGroup = val.controls[this.name] as FormGroup;
   }
   get formGroup() {
@@ -34,7 +34,7 @@ export class ComplexField extends FieldBase {
     return ComplexFieldComponent;
   }
   clone(): ComplexField {
-    var copy = new ComplexField(this.name, { });
+    var copy = new ComplexField(this.name, {});
     copy.formControl = this.formControl.clone();
     return copy;
   }
