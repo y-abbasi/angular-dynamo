@@ -1,5 +1,5 @@
 <span>
-	{{field.formControl.formGroup.value[field.displayFeld]}}<span (click)="openForm(innerForm)">...</span>
+	{{field.formControl.formGroup.value[field.displayField]}}<span (click)="openForm(innerForm)">...</span>
 </span>
 <ng-template #innerForm>
 	<app-form-loader [fields]="[field.formControl]"></app-form-loader>

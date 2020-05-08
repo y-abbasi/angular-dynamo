@@ -12,7 +12,6 @@ export abstract class FieldBase extends BaseControl {
 
   private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    if (!this.setupFormGroup) debugger;
     this.setupFormGroup(val);
     this._formGroup = val;
   }
