@@ -55,4 +55,7 @@ export class FormControl extends BaseControl {
   component(): Type<any> {
     return FormControlComponent;
   }
+  setupFormGroup(formGroup: FormGroup){
+    this.containers.forEach(c => c.setupFormGroup(formGroup));
+  }
 }

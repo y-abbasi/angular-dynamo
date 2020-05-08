@@ -1,20 +1,21 @@
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { Type } from "@angular/core";
 import { Designer } from "./text-field-setting";
 import { FieldBase } from "./field-base";
+import { FormControl } from "./form-control";
 
 export abstract class ComplexField extends FieldBase {
   //group: string;
+  formControl: FormControl;
   constructor(name: string, settings: any) {
     super(name, settings);
   }
-
-  _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    if (val) val.addControl(this.name, new FormGroup({}));
-    this._formGroup = val;
+    super.formGroup = val;
+    this.formControl.formGroup = val;
   }
-  get formGroup() {
-    return this._formGroup;
+
+  setupFormGroup(formGroup: FormGroup) {
+    this.formControl.setupFormGroup(formGroup);
   }
 }
