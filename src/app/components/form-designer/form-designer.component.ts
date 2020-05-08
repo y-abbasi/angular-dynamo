@@ -83,9 +83,6 @@ export class FormDesignerComponent implements OnInit {
   prepareForm() {
     if (!this.fields) return;
     this.fields.forEach(a => {
-      if (a instanceof FieldBase) {
-        this.formGroup.addControl(a.name, new FormControl());
-      }
       a.formGroup = this.formGroup;
     });
     this.ref.markForCheck();

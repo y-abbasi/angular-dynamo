@@ -10,14 +10,6 @@ export abstract class FieldBase extends BaseControl {
     super(name, settings);
   }
 
-  protected _formGroup: FormGroup;
-  set formGroup(val: FormGroup) {
-    this.setupFormGroup(val);
-    this._formGroup = val;
-  }
-  get formGroup() {
-    return this._formGroup;
-  }
   setupFormGroup(formGroup: FormGroup) {
     if (formGroup) formGroup.addControl(this.name, new FormControl());
   }

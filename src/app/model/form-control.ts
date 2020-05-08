@@ -44,13 +44,10 @@ export class FormControl extends BaseControl {
   get columnsCount(): number {
     return this._columnsCount || (this._columnsCount = 0);
   }
-  _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    this._formGroup = val;
+    super.setupFormGroup = (f) => this.setupFormGroup(fg);
+    super.formGroup = val;
     this.setContainerFormGroup();
-  }
-  get formGroup() {
-    return this._formGroup;
   }
   component(): Type<any> {
     return FormControlComponent;
