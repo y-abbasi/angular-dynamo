@@ -32,12 +32,12 @@ export class RepeaterControl extends BaseControl {
       subscription = this.items.valueChanges.subscribe(updateControls);
     };
     subscription = this.items.valueChanges.subscribe(updateControls);
-  }
+  } 
   get formGroup() {
     return this._formGroup;
   }
   setupFormGroup(formGroup: FormGroup) {
-    thisformGroup.addControl(this.name, new FormArray([]));
+    formGroup.addControl(this.name, new FormArray([]));
   }
   component(): Type<any> {
     return RepeaterControlComponent;
