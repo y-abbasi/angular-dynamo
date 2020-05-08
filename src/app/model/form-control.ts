@@ -60,4 +60,9 @@ export class FormControl extends BaseControl {
   setupFormGroup(formGroup: FormGroup) {
     this.containers.forEach(c => c.setupFormGroup(formGroup));
   }
+  clone(): FormControl {
+    var copy = new FormControl(this.name, {columnsCount: this.columnsCount});
+    copy.containers = this.containers.map(item => item.clone());
+    return copy;
+  }
 }

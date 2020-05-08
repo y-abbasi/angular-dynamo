@@ -17,5 +17,7 @@ export class CheckboxField extends FieldBase {
   }
   @Designer(new TextDesigner({ title: "Title", group: "General" }))
   title: string;
-
+  clone(): CheckboxField {
+    return new CheckboxField(this.name, this);
+  }
 }

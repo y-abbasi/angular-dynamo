@@ -1,13 +1,15 @@
 import { BaseControl } from "./base-control";
 import { FormGroup, FormArray } from "@angular/forms";
 import { ContainerControl } from "./container-control";
+import { Type } from "@angular/core";
+import { RepeaterControlComponent } from "../components/repeater-control/repeater-control.component";
 
 export class RepeaterControl extends BaseControl {
-  itemSchema: ContainerControl;
+  itemSchema: () => ContainerControl;
   editable: boolean;
   insertable: boolean;
   removable: boolean;
-  constructor(name: string, settings: any){
+  constructor(name: string, settings: any) {
     super(name, settings);
   }
   private _formGroup: FormGroup;
@@ -21,16 +23,19 @@ export class RepeaterControl extends BaseControl {
   setupFormGroup(formGroup: FormGroup) {
     this.formGroup.addControl(this.name, new FormArray([]));
   }
-  addNewItem(){
-    if(this.insertable !== true) return;
+  component(): Type<any> {
+    return RepeaterControlComponent;
+  }
+  addNewItem() {
+    if (this.insertable !== true) return;
     var itemFormGroup = new FormGroup({});
-    this.itemSchema.setupFormGroup(itemFormGroup);
-    this.items.push(itemFormGroup)
+    this.itemSchema().setupFormGroup(itemFormGroup);
+    this.items.push(itemFormGroup);
   }
-  private get items() : FormArray{
-    return (this.formGroup.controls[this.name] as FormArray);
+  private get items(): FormArray {
+    return this.formGroup.controls[this.name] as FormArray;
   }
-  removeAt(index: number){
-    titems.removeAt(index);
+  removeAt(index: number) {
+    this.items.removeAt(index);
   }
 }

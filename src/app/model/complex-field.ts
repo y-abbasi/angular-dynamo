@@ -33,4 +33,9 @@ export class ComplexField extends FieldBase {
   component(): Type<any> {
     return ComplexFieldComponent;
   }
+  clone(): ComplexField {
+    var copy = new ComplexField(this.name, { });
+    copy.formControl = this.formControl.clone();
+    return copy;
+  }
 }

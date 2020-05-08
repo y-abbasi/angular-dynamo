@@ -34,4 +34,9 @@ export class ContainerControl extends BaseControl {
     if (this._controls)
       this._controls.forEach(item => item.setupFormGroup(formGroup));
   }
+  clone(): ContainerControl {
+    var copy = new ContainerControl(this.name, {...this});
+    copy.controls = this._controls.map(item => item.clone());
+    return copy;
+  }
 }

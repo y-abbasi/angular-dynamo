@@ -30,8 +30,7 @@ export class ProductTypeComponent implements OnInit {
   visible: boolean = true;
   ngOnInit() {
     this.formGroup = new FormGroup({});
-    this.fields = [
-      new FormControl("form1", {
+    var item =      new FormControl("form1", {
         title: "Base Info",
         containers: [
           new ContainerControl("container1", {
@@ -47,8 +46,8 @@ export class ProductTypeComponent implements OnInit {
             ]
           })
         ]
-      })
-    ];
+      });
+    this.fields = [ item ];
     //this.fields.forEach(a => a.group = "group")
     this.textField = this.fields[0];
   }

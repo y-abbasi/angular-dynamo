@@ -43,5 +43,9 @@ export class TextField extends FieldBase {
     })
   )
   type: String;
+  clone(): TextField {
+    var copy = new TextField(this.name, {...this });
+    return copy;
+  }
 
 }

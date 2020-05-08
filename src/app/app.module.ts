@@ -25,6 +25,7 @@ import { EventAggregatorService } from './services/event-aggregator.service';
 import { CheckboxFieldComponent } from './components/checkbox-field/checkbox-field.component';
 import { ComplexFieldComponent } from './components/complex-field/complex-field.component';
 import { DialogsModule } from "@progress/kendo-angular-dialog";
+import { RepeaterControlComponent } from './components/repeater-control/repeater-control.component';
 var routes = [
   {
     path: "",
@@ -60,7 +61,8 @@ var routes = [
     ContainerControlComponent,
     CheckboxFieldComponent,
     CheckboxFieldComponent,
-    ComplexFieldComponent
+    ComplexFieldComponent,
+    RepeaterControlComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent, ComplexFieldComponent],

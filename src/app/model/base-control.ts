@@ -16,15 +16,7 @@ export abstract class BaseControl {
   @Designer(new TextDesigner({ title: "Condition", group: "General" }))
   condition: string;
 
-  private _formGroup: FormGroup;
-  set formGroup(val: FormGroup) {
-    if (!this.setupFormGroup) debugger;
-    this.setupFormGroup(val);
-    this._formGroup = val;
-  }
-  get formGroup() {
-    return this._formGroup;
-  }
+  formGroup: FormGroup;
   constructor(name: string, settings: any) {
     this.name = name;
     this.condition = "";
@@ -32,4 +24,5 @@ export abstract class BaseControl {
   }
   abstract component(): Type<any>;
   abstract setupFormGroup(formGroup: FormGroup);
+  abstract clone(): BaseControl;
 }
