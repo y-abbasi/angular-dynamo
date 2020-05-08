@@ -5,17 +5,33 @@ import { Type } from "@angular/core";
 import { RepeaterControlComponent } from "../components/repeater-control/repeater-control.component";
 
 export class RepeaterControl extends BaseControl {
-  itemSchema: () => ContainerControl;
+  itemSchema: ContainerControl;
   editable: boolean;
   insertable: boolean;
   removable: boolean;
+  _controls: Array<ContainerControl> = [];
+  get controls(): Array<ContainerControl> {
+    return this._controls;
+  }
   constructor(name: string, settings: any) {
     super(name, settings);
   }
   private _formGroup: FormGroup;
   set formGroup(val: FormGroup) {
-    this.setupFormGroup(val);
     this._formGroup = val;
+    this.setupFormGroup(val);
+    let subscription = null;
+    let updateControls = data => {
+      subscription.unsubscribe();
+      if (this.items.controls.length === this._controls.length) return;
+      this._controls = this.items.controls.map(item => {
+        var c = this.itemSchema.clone();
+        c.formGroup = item;
+        return c;
+      });
+      subscription = this.items.valueChanges.subscribe(updateControls);
+    };
+    subscription = this.items.valueChanges.subscribe(updateControls);
   }
   get formGroup() {
     return this._formGroup;
@@ -27,9 +43,9 @@ export class RepeaterControl extends BaseControl {
     return RepeaterControlComponent;
   }
   addNewItem() {
-    if (this.insertable !== true) return;
+    //if (this.insertable !== true) return;
     var itemFormGroup = new FormGroup({});
-    this.itemSchema().setupFormGroup(itemFormGroup);
+    this.itemSchema.setupFormGroup(itemFormGroup);
     this.items.push(itemFormGroup);
   }
   private get items(): FormArray {

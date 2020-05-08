@@ -1,0 +1,4 @@
+<div *ngFor="let item of field.controls" class="row">
+	<app-form-loader [fields]="[item]"></app-form-loader>
+</div>
+<button (click)="add($event)">Add</button>

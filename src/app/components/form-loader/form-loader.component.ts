@@ -38,6 +38,7 @@ export class FormLoaderComponent implements OnInit {
     this.prepareForm();
   }
   groupBy(xs: Array<FieldBase>, key: string): Array<GroupSet> {
+    if(xs.reduce === undefined) return;
     return xs.reduce((rv, x) => {
       var group = rv.find(a => a.title == x[key]);
       if (group == null) rv.push((group = new GroupSet(x[key], [])));

@@ -11,4 +11,7 @@ export class RepeaterControlComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  add(){
+    this.field.addNewItem();
+  }
 }

@@ -65,7 +65,7 @@ var routes = [
     RepeaterControlComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent, ComplexFieldComponent],
+  entryComponents: [TextFieldComponent, ComboFieldComponent, ContainerControlComponent, FormControlComponent, CheckboxFieldComponent, ComplexFieldComponent,RepeaterControlComponent],
   providers: [SchemaBuilderService, EvaluatorService, EventAggregatorService]
 })
 export class AppModule {}

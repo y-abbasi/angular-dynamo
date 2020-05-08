@@ -15,6 +15,8 @@ import {
 } from "@angular/cdk/drag-drop";
 import { ContainerControl } from "../model/container-control";
 import { FormControl } from "../model/form-control";
+import { BaseControl } from "../model/base-control";
+import { RepeaterControl } from "../model/repeater-control";
 
 @Component({
   selector: "app-product-type",
@@ -23,31 +25,39 @@ import { FormControl } from "../model/form-control";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductTypeComponent implements OnInit {
-  fields: Array<FieldBase>;
+  fields: Array<BaseControl>;
   formGroup: FormGroup;
   textField: any;
   constructor(private ref: ChangeDetectorRef) {}
   visible: boolean = true;
   ngOnInit() {
     this.formGroup = new FormGroup({});
-    var item =      new FormControl("form1", {
-        title: "Base Info",
-        containers: [
-          new ContainerControl("container1", {
-            controls: [
-              new TextField("FirstName", { title: "first name" }),
-              new TextField("LastName", { title: "last name" })
-            ]
-          }),
-          new ContainerControl("container2", {
-            controls: [
-              new TextField("FirstName2222", { title: "first name" }),
-              new TextField("LastName2", { title: "last name" })
-            ]
-          })
+    var item = new FormControl("form1", {
+      title: "Base Info",
+      containers: [
+        new ContainerControl("container1", {
+          controls: [
+            new TextField("FirstName", { title: "first name" }),
+            new TextField("LastName", { title: "last name" })
+          ]
+        }),
+        new ContainerControl("container2", {
+          controls: [
+            new TextField("FirstName2222", { title: "first name" }),
+            new TextField("LastName2", { title: "last name" })
+          ]
+        })
+      ]
+    });
+    var addresses = new RepeaterControl("address", {
+      itemSchema: new ContainerControl("container2", {
+        controls: [
+          new TextField("FirstName2222", { title: "first name" }),
+          new TextField("LastName2", { title: "last name" })
         ]
-      });
-    this.fields = [ item ];
+      })
+    });
+    this.fields = [item, addresses];
     //this.fields.forEach(a => a.group = "group")
     this.textField = this.fields[0];
   }
