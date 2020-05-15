@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-import { ContainerControl } from "../../model/container-control";
 import {
   CdkDragDrop,
   moveItemInArray,
@@ -13,7 +12,7 @@ import { BaseControl } from "../../model/base-control";
   styleUrls: ["./container-control.component.css"]
 })
 export class ContainerControlComponent implements OnInit {
-  @Input() field: ContainerControl;
+  @Input() field: any;
   @Output() controlAdded: EventEmitter<any> = new EventEmitter();
   constructor() {}
 

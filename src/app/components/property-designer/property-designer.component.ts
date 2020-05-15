@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
+import { Component, OnInit, Input, SimpleChanges, Inject, forwardRef } from "@angular/core";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
 import { FieldBase } from "../../model/field-base";
 import { SchemaBuilderService } from "../../services/schema-builder.service";
@@ -16,7 +16,7 @@ export class PropertyDesignerComponent implements OnInit {
   schema: Array<FieldBase>;
   schemaBuilder: SchemaBuilderService;
 
-  constructor(schemaBuilder: SchemaBuilderService) {
+  constructor(@Inject(forwardRef(() => SchemaBuilderService))schemaBuilder: SchemaBuilderService) {
     this.schemaBuilder = schemaBuilder;
   }
 

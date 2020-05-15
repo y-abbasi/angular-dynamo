@@ -4,7 +4,9 @@ import {
   Input,
   ChangeDetectorRef,
   SimpleChanges,
-  Type
+  Type,
+  Inject,
+  forwardRef
 } from "@angular/core";
 import { BaseControl } from "../../model/base-control";
 import { FormGroup } from "@angular/forms";
@@ -37,7 +39,7 @@ export class FormDesignerComponent implements OnInit {
     this.selectControl(value[0]);
   }
   formGroup: FormGroup;
-  constructor(private ref: ChangeDetectorRef, private eventAggregator: EventAggregatorService) {
+  constructor(@Inject(forwardRef(() => ChangeDetectorRef))private ref: ChangeDetectorRef,@Inject(forwardRef(() => EventAggregatorService)) private eventAggregator: EventAggregatorService) {
     this.eventAggregator.subscribe(ComponentSelected, (e) => this.selectControl(e.component));
   }
   tools: Array<Type<any>> = [TextField, ComboField, CheckboxField];

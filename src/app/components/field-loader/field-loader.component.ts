@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, DoCheck } from "@angular/core";
+import { Component, OnInit, Input, DoCheck, Inject, forwardRef } from "@angular/core";
 import { FieldBase } from "../../model/field-base";
 import { EventAggregatorService } from "../../services/event-aggregator.service";
 import { ComponentSelected } from "../../model/messages/component-selected";
@@ -10,7 +10,7 @@ import { ComponentSelected } from "../../model/messages/component-selected";
 })
 export class FieldLoaderComponent implements OnInit, DoCheck {
   @Input() field: FieldBase;
-  constructor(private eventAggregator: EventAggregatorService) {}
+  constructor(@Inject(forwardRef(() => EventAggregatorService))private eventAggregator: EventAggregatorService) {}
 
   ngOnInit() {}
   ngDoCheck() {}

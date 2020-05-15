@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from "@angular/core";
+import { Component, OnInit, TemplateRef, Inject, forwardRef } from "@angular/core";
 import {
   DialogService,
   DialogRef,
@@ -14,7 +14,7 @@ import { FormGroup } from "@angular/forms";
 })
 export class ComplexFieldComponent implements OnInit {
   field: ComplexField;
-  constructor(private dialogService: DialogService) {}
+  constructor(@Inject(forwardRef(() => DialogService))private dialogService: DialogService) {}
 
   ngOnInit() {}
 

@@ -16,7 +16,7 @@ export abstract class BaseControl {
   @Designer(new TextDesigner({ title: "Condition", group: "General" }))
   condition: string;
 
-  formGroup: FormGroup;
+  abstract formGroup: FormGroup;
   constructor(name: string, settings: any) {
     this.name = name;
     this.condition = "";

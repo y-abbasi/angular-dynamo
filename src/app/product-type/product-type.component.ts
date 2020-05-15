@@ -1,18 +1,14 @@
 import {
   Component,
   OnInit,
-  NgZone,
-  ChangeDetectorRef,
   ChangeDetectionStrategy
 } from "@angular/core";
 import { TextField } from "../model/text-field";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
 import { FieldBase } from "../model/field-base";
 import {
   moveItemInArray,
-  CdkDragDrop,
-  transferArrayItem
-} from "@angular/cdk/drag-drop";
+  CdkDragDrop} from "@angular/cdk/drag-drop";
 import { ContainerControl } from "../model/container-control";
 import { FormControl } from "../model/form-control";
 import { BaseControl } from "../model/base-control";
@@ -28,7 +24,7 @@ export class ProductTypeComponent implements OnInit {
   fields: Array<BaseControl>;
   formGroup: FormGroup;
   textField: any;
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor() {}
   visible: boolean = true;
   ngOnInit() {
     this.formGroup = new FormGroup({});

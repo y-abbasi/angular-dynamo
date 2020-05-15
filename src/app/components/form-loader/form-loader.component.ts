@@ -4,7 +4,9 @@ import {
   Input,
   SimpleChanges,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  Inject,
+  forwardRef
 } from "@angular/core";
 import { FieldBase } from "../../model/field-base";
 import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
@@ -24,7 +26,7 @@ export class FormLoaderComponent implements OnInit {
   @Input("formGroup") set setFormGroup(val: FormGroup) {
     this.formGroup = val;
   }
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(@Inject(forwardRef(() => ChangeDetectorRef))private ref: ChangeDetectorRef) {}
 
   groups: Array<GroupSet>;
   ngOnInit() {

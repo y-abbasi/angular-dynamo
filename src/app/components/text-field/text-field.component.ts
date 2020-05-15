@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Inject, forwardRef } from "@angular/core";
 import { TextField } from "../../model/text-field";
 import { Designer } from "../../model/text-field-setting";
 import { EvaluatorService } from "../../services/evaluator.service";
@@ -6,11 +6,12 @@ import { EvaluatorService } from "../../services/evaluator.service";
 @Component({
   selector: "app-text-field",
   templateUrl: "./text-field.component.html",
-  styleUrls: ["./text-field.component.css"]
+  styleUrls: ["./text-field.component.css"],
+  providers: [EvaluatorService]
 })
 export class TextFieldComponent implements OnInit {
   @Input() field: TextField;
-  constructor(private evaluator: EvaluatorService) {}
+  constructor(@Inject(forwardRef(() => EvaluatorService))private evaluator: EvaluatorService) {}
 
   ngOnInit() {
   }
